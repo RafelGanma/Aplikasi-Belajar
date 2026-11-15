@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Belajar OSN Astronomi - Lengkap</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #38bdf8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #334155;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif, Arial;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+        header p {
+            margin: 0.4rem 0 0 0;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        h2 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.4rem;
+            margin-top: 0;
+        }
+        ul {
+            padding-left: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        li {
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+        }
+        .quiz-box {
+            background: #f1f5f9;
+            padding: 0.9rem;
+            border-radius: 8px;
+            margin-top: 0.8rem;
+        }
+        label {
+            font-size: 0.9rem;
+            display: block;
+            margin: 0.3rem 0;
+            cursor: pointer;
+        }
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+        .btn:active {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+        .feedback {
+            margin-top: 0.5rem;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #64748b;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>OSN Astronomi & Materi Kelas XI-XII</h1>
+        <p>Aplikasi Mandiri Berbasis Google Drive</p>
+    </header>
+
+    <div class="container">
+        <!-- Modul 1 -->
+        <div class="card">
+            <h2>Modul 1: Dasar Bola Langit & Tata Koordinat</h2>
+            <ul>
+                <li><strong>Bola Langit:</strong> Model khayal pengamatan astronomi berpusat di Bumi.</li>
+                <li><strong>Sistem Horizon:</strong> Berdasarkan koordinat Azimuth dan Altitud ($h$).</li>
+                <li><strong>Sistem Ekuatorial:</strong> Menggunakan Asensio Rekta (RA) dan Deklinasi (Dec).</li>
+                <li><strong>Waktu:</strong> Perbedaan antara Solar Time dan Sidereal Time.</li>
+            </ul>
+            <div class="quiz-box">
+                <p><strong>Soal 1:</strong> Matahari terbit tepat di titik timur pada saat tanggal...</p>
+                <label><input type="radio" name="q1" value="a"> A. 21 Juni / 21 Desember</label>
+                <label><input type="radio" name="q1" value="b"> B. 21 Maret / 23 September</label>
+                <button class="btn" onclick="cek1()">Cek Jawaban</button>
+                <div id="res1" class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- Modul 2 -->
+        <div class="card">
+            <h2>Modul 2: Mekanika Benda Langit & Hukum Kepler</h2>
+            <ul>
+                <li><strong>Hukum I & II Kepler:</strong> Orbit elips dengan Matahari di fokus; sapuan luas juring konstan.</li>
+                <li><strong>Hukum III Kepler:</strong> $P^2 = a^3$ (untuk $P$ dalam tahun dan $a$ dalam sa).</li>
+            </ul>
+            <div class="quiz-box">
+                <p><strong>Soal 2:</strong> Jika setengah sumbu panjang orbit komet $a = 4$ sa, berapakah periodenya?</p>
+                <label><input type="radio" name="q2" value="a"> A. 4 tahun</label>
+                <label><input type="radio" name="q2" value="b"> B. 8 tahun</label>
+                <button class="btn" onclick="cek2()">Cek Jawaban</button>
+                <div id="res2" class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- Modul 3 -->
+        <div class="card">
+            <h2>Modul 3: Astrofisika & Fisika Bintang</h2>
+            <ul>
+                <li><strong>Hukum Wien:</strong> $\lambda_{\text{max}} \cdot T = \text{konstan}$.</li>
+                <li><strong>Hukum Stefan-Boltzmann:</strong> Fluks energi $F = \sigma T^4$.</li>
+            </ul>
+            <div class="quiz-box">
+                <p><strong>Soal 3:</strong> Jika suhu bintang naik 2 kali lipat, fluks energi menjadi...</p>
+                <label><input type="radio" name="q3" value="a"> B. 4 kali lipat</label>
+                <label><input type="radio" name="q3" value="b"> C. 16 kali lipat</label>
+                <button class="btn" onclick="cek3()">Cek Jawaban</button>
+                <div id="res3" class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- Modul 4 -->
+        <div class="card">
+            <h2>Modul 4: Kosmologi & Hukum Hubble</h2>
+            <ul>
+                <li><strong>Hukum Hubble:</strong> Kecepatan resesi $v = H_0 \cdot d$.</li>
+                <li><strong>Redshift ($z$):</strong> Pergeseran garis spektrum akibat ekspansi semesta.</li>
+            </ul>
+            <div class="quiz-box">
+                <p><strong>Soal 4:</strong> Jika $\lambda_{\text{obs}} = 600$ nm dan $\lambda_{\text{rest}} = 500$ nm, nilai $z$ adalah...</p>
+                <label><input type="radio" name="q4" value="a"> A. 0,1</label>
+                <label><input type="radio" name="q4" value="b"> B. 0,2</label>
+                <button class="btn" onclick="cek4()">Cek Jawaban</button>
+                <div id="res4" class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- Bank Soal -->
+        <div class="card">
+            <h2>Bank Soal Latihan (OSK / OSP)</h2>
+            <div class="quiz-box">
+                <p><strong>Soal Latihan:</strong> Fluks matahari di Jupiter ($d = 5,2$ sa) dibandingkan di Bumi adalah...</p>
+                <label><input type="radio" name="bank1" value="a"> A. $\approx 0,037$ kali</label>
+                <label><input type="radio" name="bank1" value="b"> B. $\approx 0,192$ kali</label>
+                <button class="btn" onclick="cekBank()">Cek Jawaban</button>
+                <div id="resBank" class="feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Rafka Rochquel Gantzha Pratama | SMAN 1 Kertosono
+    </div>
+
+    <script>
+        function cek1() {
+            const p = document.querySelector('input[name="q1"]:checked');
+            const r = document.getElementById('res1');
+            if(!p) { r.style.color="orange"; r.innerText="Pilih jawaban dulu!"; return; }
+            if(p.value==="b") { r.style.color="green"; r.innerText="Benar! Tanggal ekuinoks (21 Maret / 23 September)."; }
+            else { r.style.color="red"; r.innerText="Kurang tepat."; }
+        }
+        function cek2() {
+            const p = document.querySelector('input[name="q2"]:checked');
+            const r = document.getElementById('res2');
+            if(!p) { r.style.color="orange"; r.innerText="Pilih jawaban dulu!"; return; }
+            if(p.value==="b") { r.style.color="green"; r.innerText="Benar! P = akar(4^3) = 8 tahun."; }
+            else { r.style.color="red"; r.innerText="Kurang tepat."; }
+        }
+        function cek3() {
+            const p = document.querySelector('input[name="q3"]:checked');
+            const r = document.getElementById('res3');
+            if(!p) { r.style.color="orange"; r.innerText="Pilih jawaban dulu!"; return; }
+            if(p.value==="b") { r.style.color="green"; r.innerText="Benar! 2 pangkat 4 = 16 kali lipat."; }
+            else { r.style.color="red"; r.innerText="Kurang tepat. Ingat pangkat 4."; }
+        }
+        function cek4() {
+            const p = document.querySelector('input[name="q4"]:checked');
+            const r = document.getElementById('res4');
+            if(!p) { r.style.color="orange"; r.innerText="Pilih jawaban dulu!"; return; }
+            if(p.value==="b") { r.style.color="green"; r.innerText="Benar! z = (600-500)/500 = 0,2."; }
+            else { r.style.color="red"; r.innerText="Kurang tepat."; }
+        }
+        function cekBank() {
+            const p = document.querySelector('input[name="bank1"]:checked');
+            const r = document.getElementById('resBank');
+            if(!p) { r.style.color="orange"; r.innerText="Pilih jawaban dulu!"; return; }
+            if(p.value==="a") { r.style.color="green"; r.innerText="Benar! F berbanding terbalik dengan kuadrat jarak (1 / 5,2^2)."; }
+            else { r.style.color="red"; r.innerText="Kurang tepat."; }
+        }
+    </script>
+</body>
+</html>
