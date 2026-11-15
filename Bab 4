@@ -1,0 +1,43 @@
+        <!-- Modul 4: Kosmologi & Hukum Hubble -->
+        <div class="card">
+            <h2>Modul 4: Kosmologi & Hukum Hubble</h2>
+            <p>Materi inti berdasarkan arsip soal OSN & OSP:</p>
+            <ul>
+                <li><strong>Alam Semesta Mengembang:</strong> Pengamatan menunjukkan bahwa galaksi-galaksi di luar galaksi Bima Sakti bergerak menjauhi kita.</li>
+                <li><strong>Hukum Hubble:</strong> Kecepatan resesi galaksi ($v$) sebanding dengan jaraknya ($d$) dari Bumi, dirumuskan: 
+                    <br><code>$v = H_0 \cdot d$</code> (dengan $H_0$ adalah tetapan Hubble).</li>
+                <li><strong>Pergeseran Merah (Redshift - $z$):</strong> Pergeseran garis spektrum cahaya menuju panjang gelombang yang lebih panjang akibat ekspansi alam semesta atau kecepatan gerak menjauh:
+                    <br><code>$z = \frac{\lambda_{\text{obs}} - \lambda_{\text{rest}}}{\lambda_{\text{rest}}} \approx \frac{v}{c}$</code>.</li>
+            </ul>
+        </div>
+
+        <!-- Latihan Soal Mini Modul 4 -->
+        <div class="card">
+            <h2>Latihan Soal Mini (Modul 4)</h2>
+            <div class="quiz-box">
+                <p><strong>Soal 4:</strong> Suatu garis spektrum galaksi diamati pada panjang gelombang 600 nm. Jika panjang gelombang diam laboratorium dari garis tersebut adalah 500 nm, berapakah nilai pergeseran merah ($z$) galaksi tersebut?</p>
+                <label><input type="radio" name="q4" value="a"> A. 0,1</label><br>
+                <label><input type="radio" name="q4" value="b"> B. 0,2</label><br>
+                <label><input type="radio" name="q4" value="c"> C. 0,5</label><br>
+                <button class="btn" onclick="cekJawaban4()">Cek Jawaban</button>
+                <div id="result4" class="feedback"></div>
+            </div>
+        </div>
+        function cekJawaban4() {
+            const pilihan = document.querySelector('input[name="q4"]:checked');
+            const resultDiv = document.getElementById('result4');
+            
+            if (!pilihan) {
+                resultDiv.style.color = "orange";
+                resultDiv.innerText = "Pilih salah satu jawaban terlebih dahulu!";
+                return;
+            }
+
+            if (pilihan.value === "b") {
+                resultDiv.style.color = "green";
+                resultDiv.innerText = "Benar! $z = (\\lambda_{\\text{obs}} - \\lambda_{\\text{rest}}) / \\lambda_{\\text{rest}} = (600 - 500) / 500 = 100 / 500 = 0,2$.";
+            } else {
+                resultDiv.style.color = "red";
+                resultDiv.innerText = "Kurang tepat. Gunakan rumus $z = \\frac{\\lambda_{\\text{obs}} - \\lambda_{\\text{rest}}}{\\lambda_{\\text{rest}}}$!";
+            }
+        }
