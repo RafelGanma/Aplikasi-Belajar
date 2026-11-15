@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSN Astronomi - Modul 1</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #38bdf8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #334155;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif, Arial;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        h2 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.4rem;
+            margin-top: 0;
+        }
+        ul {
+            padding-left: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .quiz-box {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 0.8rem;
+        }
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        .btn:active {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+        .feedback {
+            margin-top: 0.5rem;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Aplikasi Belajar OSN Astronomi</h1>
+        <p>Berbasis Data Drive & Kurikulum Berjenjang (Khusus HP)</p>
+    </header>
+
+    <div class="container">
+        <!-- Modul 1: Materi -->
+        <div class="card">
+            <h2>Modul 1: Dasar Bola Langit & Tata Koordinat</h2>
+            <p>Materi inti berdasarkan arsip silabus dan bank soal OSN:</p>
+            <ul>
+                <li><strong>Bola Langit:</strong> Model khayal bola dengan radius tak hingga tempat benda langit seolah-olah berpusat pada pengamat di Bumi.</li>
+                <li><strong>Sistem Koordinat Horizon:</strong> Menggunakan parameter <em>Azimuth</em> (arah mata angin dari utara ke timur) dan <em>Altitud</em> / Tinggi ($h$) dari ufuk.</li>
+                <li><strong>Sistem Koordinat Ekuatorial:</strong> Menggunakan <em>Right Ascension</em> (RA / Asensio Rekta) dan <em>Declination</em> (Dec / Deklinasi), sejajar dengan ekuator langit.</li>
+                <li><strong>Waktu Sidereal & Matahari:</strong> Perbedaan antara putaran relatif terhadap bintang (*sidereal time*) dan relatif terhadap Matahari (*solar day*).</li>
+            </ul>
+        </div>
+
+        <!-- Latihan Soal Interaktif -->
+        <div class="card">
+            <h2>Latihan Soal Mini (OSK / OSP)</h2>
+            <div class="quiz-box">
+                <p><strong>Soal 1:</strong> Jika suatu hari seorang pengamat melihat Matahari terbit tepat dari arah timur, maka pernyataan yang benar adalah...</p>
+                <label><input type="radio" name="q1" value="a"> A. Posisi pengamat berada di kutub utara</label><br>
+                <label><input type="radio" name="q1" value="b"> B. Pengamatan dilakukan sekitar tanggal 21 Maret atau 23 September</label><br>
+                <label><input type="radio" name="q1" value="c"> C. Panjang siang hari kurang dari 12 jam</label><br>
+                <button class="btn" onclick="cekJawaban()">Cek Jawaban</button>
+                <div id="result1" class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- Kalkulator Rumus Cepat -->
+        <div class="card">
+            <h2>Catatan Rumus Cepat</h2>
+            <p><strong>Hubungan Sudut Jam (HA), RA, dan LST:</strong></p>
+            <p style="background: #e2e8f0; padding: 0.5rem; border-radius: 4px; text-align: center; font-family: monospace;">
+                LST = RA + HA
+            </p>
+            <p style="font-size: 0.85rem; color: #475569;">Gunakan rumus ini untuk mencari waktu kulminasi bintang di suatu lokasi pengamatan.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        Dibuat khusus untuk persiapan OSN Astronomi | SMAN 1 Kertosono
+    </div>
+
+    <script>
+        function cekJawaban() {
+            const pilihan = document.querySelector('input[name="q1"]:checked');
+            const resultDiv = document.getElementById('result1');
+            
+            if (!pilihan) {
+                resultDiv.style.color = "orange";
+                resultDiv.innerText = "Pilih salah satu jawaban terlebih dahulu!";
+                return;
+            }
+
+            if (pilihan.value === "b") {
+                resultDiv.style.color = "green";
+                resultDiv.innerText = "Benar! Pada tanggal ekuinoks (21 Maret & 23 September), Matahari terbit tepat di titik timur.";
+            } else {
+                resultDiv.style.color = "red";
+                resultDiv.innerText = "Kurang tepat. Coba ingat kembali konsep titik ekuinoks tahunan!";
+            }
+        }
+    </script>
+</body>
+</html>
