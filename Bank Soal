@@ -1,0 +1,32 @@
+        <!-- Bank Soal Latihan OSK & OSP -->
+        <div class="card">
+            <h2>Bank Soal Latihan (OSK & OSP Astronomi)</h2>
+            <p>Arsip soal latihan berdasarkan data dokumen teori di Google Drive:</p>
+            
+            <div class="quiz-box" style="margin-bottom: 1rem;">
+                <p><strong>Soal Latihan 1 (OSK):</strong> Planet Jupiter memiliki jarak rata-rata ke Matahari sekitar 5,2 sa. Berapakah besar fluks matahari yang diterima oleh planet Jupiter jika dibandingkan dengan fluks matahari yang diterima oleh Bumi ($1 \text{ sa}$)?</p>
+                <label><input type="radio" name="bank1" value="a"> A. $\approx 0,037$ kali</label><br>
+                <label><input type="radio" name="bank1" value="b"> B. $\approx 0,192$ kali</label><br>
+                <label><input type="radio" name="bank1" value="c"> C. $\approx 5,2$ kali</label><br>
+                <button class="btn" onclick="cekBank1()">Cek Jawaban</button>
+                <div id="resBank1" class="feedback"></div>
+            </div>
+        </div>
+        function cekBank1() {
+            const pilihan = document.querySelector('input[name="bank1"]:checked');
+            const resultDiv = document.getElementById('resBank1');
+            
+            if (!pilihan) {
+                resultDiv.style.color = "orange";
+                resultDiv.innerText = "Pilih salah satu jawaban terlebih dahulu!";
+                return;
+            }
+
+            if (pilihan.value === "a") {
+                resultDiv.style.color = "green";
+                resultDiv.innerText = "Benar! Berdasarkan hukum kuadrat terbalik ($F \propto 1/d^2$), fluks berbanding terbalik dengan kuadrat jarak: $1 / (5,2)^2 = 1 / 27,04 \approx 0,037$ kali fluks di Bumi.";
+            } else {
+                resultDiv.style.color = "red";
+                resultDiv.innerText = "Kurang tepat. Ingat bahwa fluks energi matahari meluruh sebanding dengan kuadrat jarak ($1/d^2$)!";
+            }
+        }
