@@ -1,0 +1,44 @@
+        <!-- Modul 3: Astrofisika & Fisika Bintang -->
+        <div class="card">
+            <h2>Modul 3: Astrofisika & Fisika Bintang</h2>
+            <p>Materi inti berdasarkan file arsip teori OSN:</p>
+            <ul>
+                <li><strong>Hukum Pergeseran Wien:</strong> Panjang gelombang maksimum ($\lambda_{\text{max}}$) tempat bintang memancarkan energi terbesar berbanding terbalik dengan suhu permukaannya ($T$): 
+                    <br><code>$\lambda_{\text{max}} \cdot T = b$</code> (dengan $b$ adalah konstanta Wien $\approx 2,897 \times 10^6 \text{ nm K}$).</li>
+                <li><strong>Hukum Stefan-Boltzmann:</strong> Fluks energi yang dipancarkan oleh permukaan benda hitam persatuan luas sebanding dengan pangkat empat suhu mutlaknya: 
+                    <br><code>$F = \sigma T^4$</code>.</li>
+                <li><strong>Luminositas Bintang ($L$):</strong> Total energi yang dipancarkan bintang per detik, bergantung pada radius ($R$) dan suhu ($T$): 
+                    <br><code>$L = 4\pi R^2 \sigma T^4$</code>.</li>
+            </ul>
+        </div>
+
+        <!-- Latihan Soal Mini Modul 3 -->
+        <div class="card">
+            <h2>Latihan Soal Mini (Modul 3)</h2>
+            <div class="quiz-box">
+                <p><strong>Soal 3:</strong> Jika suhu permukaan suatu bintang meningkat menjadi dua kali lipat dari semula, berapakah kelipatan fluks energi per satuan luas yang dipancarkan oleh bintang tersebut?</p>
+                <label><input type="radio" name="q3" value="a"> A. 2 kali lipat</label><br>
+                <label><input type="radio" name="q3" value="b"> B. 8 kali lipat</label><br>
+                <label><input type="radio" name="q3" value="c"> C. 16 kali lipat</label><br>
+                <button class="btn" onclick="cekJawaban3()">Cek Jawaban</button>
+                <div id="result3" class="feedback"></div>
+            </div>
+        </div>
+        function cekJawaban3() {
+            const pilihan = document.querySelector('input[name="q3"]:checked');
+            const resultDiv = document.getElementById('result3');
+            
+            if (!pilihan) {
+                resultDiv.style.color = "orange";
+                resultDiv.innerText = "Pilih salah satu jawaban terlebih dahulu!";
+                return;
+            }
+
+            if (pilihan.value === "c") {
+                resultDiv.style.color = "green";
+                resultDiv.innerText = "Benar! Berdasarkan Hukum Stefan-Boltzmann ($F \propto T^4$), jika suhu $T$ menjadi 2 kali, maka fluks menjadi $2^4 = 16$ kali lipat.";
+            } else {
+                resultDiv.style.color = "red";
+                resultDiv.innerText = "Kurang tepat. Ingat bahwa fluks sebanding dengan pangkat EMPAT ($T^4$) dari suhunya!";
+            }
+        }
