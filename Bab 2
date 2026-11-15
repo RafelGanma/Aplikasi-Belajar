@@ -1,0 +1,41 @@
+        <!-- Modul 2: Mekanika Benda Langit & Hukum Kepler -->
+        <div class="card">
+            <h2>Modul 2: Mekanika Benda Langit & Hukum Kepler</h2>
+            <p>Materi inti berdasarkan arsip soal OSN & OSP:</p>
+            <ul>
+                <li><strong>Hukum Kepler I & II:</strong> Orbit planet berbentuk elips dengan Matahari di salah satu titik fokusnya. Garis hubung planet-Matahari menyapu luas juring yang sama dalam waktu yang sama.</li>
+                <li><strong>Hukum Kepler III:</strong> Kuadrat periode orbit planet ($P^2$) sebanding dengan pangkat tiga setengah sumbu panjang orbitnya ($a^3$), dirumuskan: <em>$P^2 = a^3$</em> (jika $P$ dalam tahun dan $a$ dalam satuan astronomi / sa).</li>
+                <li><strong>Kecepatan Orbit & Sistem Biner:</strong> Analisis dinamika massa total bintang biner dan gerak elips komet/asteroid.</li>
+            </ul>
+        </div>
+
+        <!-- Latihan Soal Mini Modul 2 -->
+        <div class="card">
+            <h2>Latihan Soal Mini (Modul 2)</h2>
+            <div class="quiz-box">
+                <p><strong>Soal 2:</strong> Sebuah komet mengitari Matahari dengan setengah sumbu panjang orbit $a = 4$ sa. Berapakah periode orbit komet tersebut dalam tahun?</p>
+                <label><input type="radio" name="q2" value="a"> A. 4 tahun</label><br>
+                <label><input type="radio" name="q2" value="b"> B. 8 tahun</label><br>
+                <label><input type="radio" name="q2" value="c"> C. 16 tahun</label><br>
+                <button class="btn" onclick="cekJawaban2()">Cek Jawaban</button>
+                <div id="result2" class="feedback"></div>
+            </div>
+        </div>
+        function cekJawaban2() {
+            const pilihan = document.querySelector('input[name="q2"]:checked');
+            const resultDiv = document.getElementById('result2');
+            
+            if (!pilihan) {
+                resultDiv.style.color = "orange";
+                resultDiv.innerText = "Pilih salah satu jawaban terlebih dahulu!";
+                return;
+            }
+
+            if (pilihan.value === "b") {
+                resultDiv.style.color = "green";
+                resultDiv.innerText = "Benar! Berdasarkan Hukum III Kepler ($P^2 = a^3$), jika $a = 4$, maka $P^2 = 4^3 = 64$, sehingga $P = 8$ tahun.";
+            } else {
+                resultDiv.style.color = "red";
+                resultDiv.innerText = "Kurang tepat. Ingat rumus Hukum III Kepler: $P = \\sqrt{a^3}$!";
+            }
+        }
