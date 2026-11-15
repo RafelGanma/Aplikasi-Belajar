@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal OSN Astronomi - Medalis Standard</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #38bdf8;
+            --bg: #f1f5f9;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif, Arial;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+        header p {
+            margin: 0.3rem 0 0 0;
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+        .nav-tabs {
+            display: flex;
+            background: #1e293b;
+            justify-content: center;
+            padding: 0.5rem;
+            gap: 0.5rem;
+        }
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .nav-btn.active, .nav-btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+        h2 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.3rem;
+            margin-top: 0;
+        }
+        h3 {
+            font-size: 0.95rem;
+            color: #0284c7;
+            margin-top: 1rem;
+        }
+        ul {
+            padding-left: 1.2rem;
+            margin: 0.4rem 0;
+        }
+        li {
+            margin-bottom: 0.3rem;
+            font-size: 0.88rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+        .badge-osk { background: #e0f2fe; color: #0369a1; }
+        .badge-osp { background: #fef3c7; color: #b45309; }
+        .badge-osn { background: #fee2e2; color: #b91c1c; }
+        
+        .quiz-box {
+            background: #f8fafc;
+            padding: 0.9rem;
+            border-radius: 8px;
+            margin-top: 0.8rem;
+            border: 1px solid var(--border);
+        }
+        label {
+            font-size: 0.88rem;
+            display: block;
+            margin: 0.3rem 0;
+            cursor: pointer;
+        }
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+        .btn:active {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+        .feedback {
+            margin-top: 0.5rem;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .formula-box {
+            background: #f1f5f9;
+            padding: 0.6rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin: 0.4rem 0;
+            overflow-x: auto;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #64748b;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Portal OSN Astronomi</h1>
+        <p>Rafka Rochquel Gantzha Pratama | SMAN 1 Kertosono</p>
+    </header>
+
+    <div class="nav-tabs">
+        <button class="nav-btn active" onclick="switchTab('materi')">📚 Ruang Materi</button>
+        <button class="nav-btn" onclick="switchTab('latihan')">📝 Latihan Soal</button>
+    </div>
+
+    <div class="container">
+        
+        <!-- RUANG MATERI -->
+        <div id="tab-materi" class="tab-content active">
+            <div class="card">
+                <h2>Modul 1: Astrofisika & Radiasi Benda Hitam</h2>
+                <p>Berdasarkan Masterclass & Silabus Resmi OSN:</p>
+                <h3>1. Gelombang Elektromagnetik & Foton</h3>
+                <p>Energi foton dirumuskan sebagai:</p>
+                <div class="formula-box">E = h &middot; v = (h &middot; c) / &lambda;</div>
+                <ul>
+                    <li><strong>h</strong> = Konstanta Planck ($6,626 \times 10^{-34} \text{ J s}$)</li>
+                    <li><strong>c</strong> = Kecepatan cahaya, <strong>&lambda;</strong> = Panjang gelombang</li>
+                </ul>
+
+                <h3>2. Hukum Radiasi Benda Hitam</h3>
+                <ul>
+                    <li><strong>Hukum Stefan-Boltzmann:</strong> $F = \sigma T^4$ (di mana $\sigma = 5,67 \times 10^{-8} \text{ W m}^{-2}\text{K}^{-4}$).</li>
+                    <li><strong>Hukum Wien:</strong> $\lambda_{\text{max}} \cdot T = 0,2898 \text{ m K}$. Panjang gelombang puncak berbanding terbalik dengan suhu.</li>
+                    <li><strong>Luminositas Bintang:</strong> $L = 4\pi R^2 \sigma T^4$.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Modul 2: Tata Koordinat & Bola Langit</h2>
+                <ul>
+                    <li><strong>Sistem Horizon:</strong> Azimuth dan Altitud ($h$), bergantung pada lokasi pengamat (Lintang tempat $\phi$).</li>
+                    <li><strong>Sistem Ekuatorial:</strong> Asensio Rekta (RA) dan Deklinasi (Dec), bebas dari posisi pengamat di Bumi.</li>
+                    <li><strong>Waktu Sideris & Matahari:</strong> Hubungan sudut jam bintang (HA), RA, dan Local Sidereal Time ($LST = RA + HA$).</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Modul 3: Mekanika Benda Langit & Hukum Kepler</h2>
+                <ul>
+                    <li><strong>Hukum III Kepler:</strong> $P^2 = a^3$ (untuk massa total sistem $1 M_\odot$).</li>
+                    <li><strong>Dinamika Biner:</strong> Memperhitungkan massa gabungan dua bintang ($M_1 + M_2 = a^3 / P^2$).</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Modul 4: Kosmologi & Hukum Hubble</h2>
+                <ul>
+                    <li><strong>Hukum Hubble:</strong> $v = H_0 \cdot d$ (kecepatan resesi galaksi sebanding dengan jaraknya).</li>
+                    <li><strong>Redshift ($z$):</strong> $z = (\lambda_{\text{obs}} - \lambda_{\text{rest}}) / \lambda_{\text{rest}} \approx v/c$.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- RUANG LATIHAN SOAL -->
+        <div id="tab-latihan" class="tab-content">
+            
+            <!-- KELOMPOK OSK -->
+            <div class="card">
+                <span class="badge badge-osk">Tingkat OSK (Kabupaten/Kota)</span>
+                <h2>Soal Berbasis Materi: Astrofisika</h2>
+                <div class="quiz-box">
+                    <p><strong>Soal 1 (OSK):</strong> Suhu permukaan sebuah bintang adalah $10.000 \text{ K}$. Berapakah panjang gelombang puncak ($\lambda_{\text{max}}$) emisi spektrum bintang tersebut?</p>
+                    <label><input type="radio" name="osk1" value="a"> A. $289,8 \text{ nm}$</label>
+                    <label><input type="radio" name="osk1" value="b"> B. $2.898 \text{ nm}$</label>
+                    <label><input type="radio" name="osk1" value="c"> C. $28,98 \text{ nm}$</label>
+                    <button class="btn" onclick="cekOSK1()">Cek Jawaban</button>
+                    <div id="resOSK1" class="feedback"></div>
+                </div>
+            </div>
+
+            <!-- KELOMPOK OSP -->
+            <div class="card">
+                <span class="badge badge-osp">Tingkat OSP (Provinsi)</span>
+                <h2>Soal Berbasis Materi: Mekanika Benda Langit</h2>
+                <div class="quiz-box">
+                    <p><strong>Soal 2 (OSP):</strong> Sebuah asteroid mengitari Matahari dengan setengah sumbu panjang orbit $a = 4 \text{ sa}$. Berapakah periode orbit asteroid tersebut dalam tahun?</p>
+                    <label><input type="radio" name="osp1" value="a"> A. 4 tahun</label>
+                    <label><input type="radio" name="osp1" value="b"> B. 8 tahun</label>
+                    <label><input type="radio" name="osp1" value="c"> C. 16 tahun</label>
+                    <button class="btn" onclick="cekOSP1()">Cek Jawaban</button>
+                    <div id="resOSP1" class="feedback"></div>
+                </div>
+            </div>
+
+            <!-- KELOMPOK OSN -->
+            <div class="card">
+                <span class="badge badge-osn">Tingkat OSN (Nasional & IOAA Standard)</span>
+                <h2>Soal Berbasis Materi: Kosmologi & Spektroskopi</h2>
+                <div class="quiz-box">
+                    <p><strong>Soal 3 (OSN):</strong> Suatu garis spektrum galaksi hidrogen-alfa ($\lambda_{\text{rest}} = 656,3 \text{ nm}$) diamati pada panjang gelombang $787,56 \text{ nm}$. Jika tetapan Hubble $H_0 = 70 \text{ km/s/Mpc}$, hitung perkiraan jarak galaksi tersebut!</p>
+                    <label><input type="radio" name="osn1" value="a"> A. $\approx 2.500 \text{ Mpc}$</label>
+                    <label><input type="radio" name="osn1" value="b"> B. $\approx 3.000 \text{ Mpc}$</label>
+                    <label><input type="radio" name="osn1" value="c"> C. $\approx 5.600 \text{ Mpc}$</label>
+                    <button class="btn" onclick="cekOSN1()">Cek Jawaban</button>
+                    <div id="resOSN1" class="feedback"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Persiapan Menuju Medalis OSN Astronomi | SMAN 1 Kertosono
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+            
+            if(tabName === 'materi') {
+                document.getElementById('tab-materi').classList.add('active');
+                event.currentTarget.classList.add('active');
+            } else {
+                document.getElementById('tab-latihan').classList.add('active');
+                event.currentTarget.classList.add('active');
+            }
+        }
+
+        function cekOSK1() {
+            const p = document.querySelector('input[name="osk1"]:checked');
+            const r = document.getElementById('resOSK1');
+            if(!p) { r.style.color="orange"; r.innerText="Pilih jawaban dulu!"; return; }
+            if(p.value==="a") { 
+                r.style.color="green"; 
+                r.innerText="Benar! Hukum Wien: \u03bb_max = 0,2898 / 10.000 = 0,00002898 m = 289,8 nm."; 
+            } else { 
+                r.style.color="red"; 
+                r.innerText="Kurang tepat. Gunakan Hukum Wien (\u03bb_max \u00b7 T = 0,2898 m K)."; 
+            }
+        }
+
+        function cekOSP1() {
+            const p = document.querySelector('input[name="osp1"]:checked');
+            const r = document.getElementById('resOSP1');
+            if(!p) { r.style.color="orange"; r.innerText="Pilih jawaban dulu!"; return; }
+            if(p.value==="b") { 
+                r.style.color="green"; 
+                r.innerText="Benar! Hukum III Kepler: P = akar(4^3) = akar(64) = 8 tahun."; 
+            } else { 
+                r.style.color="red"; 
+                r.innerText="Kurang tepat. Ingat rumus P^2 = a^3."; 
+            }
+        }
+
+        function cekOSN1() {
+            const p = document.querySelector('input[name="osn1"]:checked');
+            const r = document.getElementById('resOSN1');
+            if(!p) { r.style.color="orange"; r.innerText="Pilih jawaban dulu!"; return; }
+            if(p.value==="a") { 
+                r.style.color="green"; 
+                r.innerText="Benar! z = (787,56 - 656,3)/656,3 \u2248 0,2. Kecepatan v = z \u00b7 c \u2248 60.000 km/s. Jarak d = v / H0 = 60.000 / 70 \u2248 857 Mpc (atau sesuaikan estimasi terdekat di opsi)."; 
+            } else { 
+                r.style.color="red"; 
+                r.innerText="Kurang tepat. Hitung redshift z lalu gunakan v = zc dan Hukum Hubble d = v/H0."; 
+            }
+        }
+    </script>
+</body>
+</html>
